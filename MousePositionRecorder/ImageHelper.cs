@@ -8,12 +8,12 @@ namespace MousePositionRecorder
 {
     public class ImageHelper
     {
-        public static void SaveCanvasAsImage(Canvas canvas, string filename, SolidColorBrush backgroundColor)
+        public static void SaveCanvasAsImage(Grid grid, string filename, Brush backgroundBrush)
         {
             // 定义要保存的宽度和高度
             double dpi = 96d; // 分辨率
-            int width = (int)canvas!.ActualWidth;
-            int height = (int)canvas!.ActualHeight;
+            int width = (int)grid!.ActualWidth;
+            int height = (int)grid!.ActualHeight;
 
             string format = Path.GetExtension(filename).Replace(".", "");
 
@@ -29,11 +29,19 @@ namespace MousePositionRecorder
             DrawingVisual visual = new DrawingVisual();
             using (DrawingContext dc = visual.RenderOpen())
             {
-                // 填充背景色
-                dc.DrawRectangle(backgroundColor, null, new Rect(0, 0, width, height));
+                // 如果背景刷是 SolidColorBrush，则直接填充颜色
+                if (backgroundBrush is SolidColorBrush solidColorBrush)
+                {
+                    dc.DrawRectangle(solidColorBrush, null, new Rect(0, 0, width, height));
+                }
+                // 如果背景刷是 ImageBrush，则绘制图像背景
+                else if (backgroundBrush is ImageBrush imageBrush)
+                {
+                    dc.DrawRectangle(imageBrush, null, new Rect(0, 0, width, height));
+                }
 
                 // 使用 VisualBrush 绘制 Canvas 的内容
-                VisualBrush visualBrush = new VisualBrush(canvas);
+                VisualBrush visualBrush = new VisualBrush(grid);
                 dc.DrawRectangle(visualBrush, null, new Rect(0, 0, width, height));
             }
 
