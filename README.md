@@ -18,7 +18,7 @@
 3. 过一段时间，点击结束⏹️按钮
 
 ### 截图
-
+![aaa](https://github.com/hupo376787/MousePositionRecorder/blob/9922cea0d7a2275b35eac0c10363188254fd4cfa/Images/Graph%20-%2024%20minutes%20(from%2023-36%20to%2000-00).png)
 
 
 ### TODO
@@ -27,3 +27,5 @@
 ### One more thing
 1. 本App的诞生，深受IOGraph的启发，感谢IOGraph的作者！
 2. 本App的诞生，ChatGPT扮演了很重要的角色，作者很懒，不想写椭圆去重算法，就让ChatGPT完成了，结果调教了两次ChatGPT，ChatGPT就出色的完成了任务。
+
+![sss](https://github.com/hupo376787/MousePositionRecorder/blob/9922cea0d7a2275b35eac0c10363188254fd4cfa/Images/ChatGPT.jpg)
