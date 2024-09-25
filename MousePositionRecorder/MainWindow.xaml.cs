@@ -80,8 +80,8 @@ namespace MousePositionRecorder
                 if (startRecording)
                 {
                     var pt = MousePositionHelper.GetMousePosition();
-                    Debug.WriteLine($"{pt.X}, {pt.Y}");
-                    if (pt != lastPoint)
+                    //Debug.WriteLine($"{pt.X}, {pt.Y}");
+                    if (pt != lastPoint && (pt - lastPoint).Length > 5)
                         DrawLine(pt);
                     else
                     {
